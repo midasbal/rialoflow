@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About RialoFlow | Autonomous Finance Storyboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="logo.png">
+    <style>
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .about-section {
+            margin-bottom: 2rem;
+        }
+
+        .about-section h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.75rem;
+        }
+
+        .about-section p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .about-section ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .about-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .main-grid::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .main-grid {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <img src="logo.png" alt="RialoFlow logo" class="site-logo">
+            <div class="header-content">
+                <h1 class="main-title">RialoFlow <span class="subtitle"
+                        style="color: var(--text-muted); font-weight: 400;">Guide</span>
+                </h1>
+            </div>
+            <a href="index.html" class="guide-link" aria-label="Back to Simulation">← Back to Simulation</a>
+        </header>
+
+        <main class="main-grid" style="display: block; overflow-y: auto;">
+            <div class="about-content">
+                <section class="about-section">
+                    <h2>What Is RialoFlow?</h2>
+                    <p>RialoFlow is a tiny interactive storyboard about autonomous finance – inspired by Rialo’s idea of
+                        a self‑driving treasury.</p>
+                    <p>There is no real money, no blockchain, no smart contracts here. It’s just a simulation that helps
+                        you see how a treasury could manage itself with rules and scheduled actions.</p>
+                </section>
+
+                <section class="about-section">
+                    <h2>What You Can Do</h2>
+                    <p>On the main page you can:</p>
+                    <ul>
+                        <li><strong>See the portfolio:</strong> A simple treasury split into USDC, T‑Bills, bonds, and
+                            cash, plus total value and a basic “reserve ratio”. You’ll also see a simple Risk Score (0–100) that moves with your settings. It’s not real risk modeling – just a toy signal to show how an autonomous treasury could “feel” market stress.</li>
+                        <li><strong>Tweak the rules:</strong> Sliders let you change market shock size, target reserve
+                            ratio, and yield distribution percentage. If you don’t want to think too hard, use the scenario presets (Conservative, Balanced, Aggressive) to instantly load different treasury personalities and rerun the story.</li>
+                        <li><strong>Play the story:</strong> A short timeline shows four moments:
+                            <ul style="margin-top: 0.5rem;">
+                                <li>T+0 – Initial state</li>
+                                <li>T+1 – Market shock</li>
+                                <li>T+2 – Auto‑rebalance</li>
+                                <li>T+3 – Scheduled yield payout</li>
+                            </ul>
+                        </li>
+                        
+                        <!-- Inserted explanatory sentences about per-step totals and simulation log -->
+                        <p>Each step also shows how the total value changed from the previous one, so you can see the impact of shocks, rebalances, and payouts in actual numbers.</p>
+                        <p>A small Simulation Log at the bottom writes out what happened at each step – like a mini trace of the treasury’s decisions.</p>
+                    </ul>
+                    <p>Hit Play and watch how the portfolio and rules react step by step.</p>
+                </section>
+
+                <section class="about-section">
+                    <h2>Why This Exists</h2>
+                    <p>Today, this kind of behavior usually needs off‑chain bots, cron jobs, keeper networks, and
+                        bundled transactions.</p>
+                    <p>Rialo’s vision is closer to:</p>
+                    <ul>
+                        <li>On‑chain programs with native scheduling and real‑world data</li>
+                        <li>Fewer bots, fewer scripts, more logic inside the protocol</li>
+                    </ul>
+                    <p>RialoFlow doesn’t run on Rialo. It’s an educational toy: a simple way to explore what a
+                        self‑driving treasury on something like Rialo could feel like.</p>
+                    <p>The Risk Score, presets, and all the math here are deliberately simplified. They’re meant to explain ideas, not to act as financial advice or real‑world models.</p>
+                </section>
+
+                <section class="about-section">
+                    <h2>Who It’s For</h2>
+                    <ul>
+                        <li>DeFi / crypto people curious about “autonomous finance”</li>
+                        <li>Builders and designers thinking about treasuries, risk, and scheduling</li>
+                        <li>Anyone who just wants to move sliders, hit Play, and see what happens</li>
+                    </ul>
+                    <p>Go back to the main screen, change some parameters, and break the treasury safely.</p>
+                </section>
+
+                <a href="index.html" class="btn btn-primary" style="text-decoration: none; justify-content: center;">
+                    ← Back to Simulation
+                </a>
+            </div>
+        </main>
+
+        <!-- Credits Footer -->
+        <div class="credits-footer">
+            <span class="credits-text">midas - build with love ❤️</span>
+            <span class="separator">|</span>
+            <a href="https://x.com/wjmdiary" target="_blank" class="social-link">
+                reach me anytime
+                <svg viewBox="0 0 24 24" class="x-logo" aria-hidden="true">
+                    <path
+                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                    </path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

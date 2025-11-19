@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Finance Storyboard | RialoFlow</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="logo.png">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <img src="logo.png" alt="RialoFlow logo" class="site-logo">
+            <div class="header-top-row">
+                <h1 class="main-title">RialoFlow</h1>
+                <a href="about.html" class="guide-link">Read the Guide →</a>
+            </div>
+            <h2 class="sub-title">Autonomous Finance Storyboard</h2>
+            <p class="subtitle">Simulated self-driving treasury scenario on Rialo concepts</p>
+            <p class="description">Visualizing how protocol-native schedulers and oracles enable atomic, autonomous
+                treasury operations.</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="main-grid">
+            <!-- Left Panel: Treasury Composition -->
+            <section class="panel treasury-panel">
+                <div class="panel-header">
+                    <h2>Treasury Composition</h2>
+                    <p>Real-time asset breakdown</p>
+                </div>
+                <div class="panel-content">
+                    <div class="chart-container">
+                        <div class="total-above-chart" aria-hidden="false">
+                            <span class="total-label">Total Value:</span>
+                            <span id="totalValue" class="total-value">$1.00M</span>
+                        </div>
+                        <svg id="treasuryChart" viewBox="0 0 100 100" class="pie-chart" role="img" aria-label="Treasury composition">
+                            <!-- Paths will be injected by JS -->
+                        </svg>
+                    </div>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <span class="label">Reserve Ratio</span>
+                            <span id="reserveRatio" class="value">100%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="label">Risk Score</span>
+                            <span id="riskScore" class="value">--</span>
+                        </div>
+                    </div>
+                    <ul id="assetList" class="asset-list">
+                        <!-- Asset items injected by JS -->
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Middle Panel: Policy & Automation Rules -->
+            <section class="panel rules-panel">
+                <div class="panel-header">
+                    <h2>Policy & Automation Rules</h2>
+                    <p>Smart contract logic encoded with native schedulers</p>
+                </div>
+                <div class="panel-content">
+                    <div class="disclaimer-box">
+                        <small>These policies illustrate how a Rialo smart contract could encode automated treasury
+                            actions using native schedulers and real-world data feeds.</small>
+                    </div>
+
+                    <!-- Scenario Presets -->
+                    <div class="presets-container">
+                        <span class="presets-label">Load Preset:</span>
+                        <div class="presets-buttons">
+                            <button class="btn-preset" data-preset="conservative">Conservative</button>
+                            <button class="btn-preset" data-preset="balanced">Balanced</button>
+                            <button class="btn-preset" data-preset="aggressive">Aggressive</button>
+                        </div>
+                    </div>
+
+                    <!-- Rule 1: Market Shock -->
+                    <div class="rule-group" id="rule-shock">
+                        <div class="rule-header">
+                            <span class="rule-title">Market Shock Simulation</span>
+                            <span class="rule-value" id="val-shock">20%</span>
+                        </div>
+                        <input type="range" id="slider-shock" min="0" max="50" value="20" class="slider">
+                        <div class="slider-label" id="label-shock">normal turbulence</div>
+                        <p class="rule-desc">Simulates a sudden drop in bond prices.</p>
+                    </div>
+
+                    <!-- Rule 2: Rebalance Trigger -->
+                    <div class="rule-group" id="rule-rebalance">
+                        <div class="rule-header">
+                            <span class="rule-title">Target Reserve Ratio</span>
+                            <span class="rule-value" id="val-reserve">110%</span>
+                        </div>
+                        <input type="range" id="slider-reserve" min="100" max="150" value="110" class="slider">
+                        <div class="slider-label" id="label-reserve">lightly defensive</div>
+                        <p class="rule-desc">If ratio &lt; target, sell risky assets & buy T-Bills.</p>
+                    </div>
+
+                    <!-- Rule 3: Yield Distribution -->
+                    <div class="rule-group" id="rule-dist">
+                        <div class="rule-header">
+                            <span class="rule-title">Yield Distribution</span>
+                            <span class="rule-value" id="val-dist">5%</span>
+                        </div>
+                        <input type="range" id="slider-dist" min="0" max="10" value="5" class="slider">
+                        <div class="slider-label" id="label-dist">balanced rewards</div>
+                        <p class="rule-desc">At month-end, distribute accumulated yield to holders.</p>
+                    </div>
+
+                                        <!-- Policy Preview: visual, pseudo on-chain DSL -->
+                                        <div class="policy-preview-card">
+                                                <div class="policy-header">Policy Preview</div>
+                                                <div class="policy-subtle">This is a pseudo on-chain policy format - illustration only.</div>
+                                                <pre id="policyPreviewCode" class="policy-code">policy: "reserve_guardrail" {
+        when reserve_ratio &lt; target_ratio {
+                sell "bonds"
+                buy "tBills"
+        }
+}
+
+policy: "monthly_yield" {
+        at every month_end {
+                distribute yield_percent to holders
+        }
+}
+</pre>
+                                        </div>
+                </div>
+            </section>
+
+            <!-- Right Panel: Timeline / Storyboard -->
+            <section class="panel timeline-panel">
+                <div class="panel-header">
+                    <h2>Scenario Timeline</h2>
+                    <p>Step-by-step execution flow</p>
+                </div>
+                <div class="panel-content">
+                    <div id="timelineContainer" class="timeline-steps">
+                        <!-- Steps injected by JS -->
+                    </div>
+
+                    <!-- Simulation Log -->
+                    <div class="simulation-log">
+                        <div class="log-header">Simulation Log</div>
+                        <ul id="simLogList" class="log-list">
+                            <!-- Logs injected by JS -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Hint Box (Initially visible, hidden after play) -->
+        <div id="hintBox" class="hint-box">
+            <span class="hint-icon">💡</span>
+            <span class="hint-text"><strong>Hint:</strong> Start with the default settings and hit
+                <strong>Play</strong>. Then turn up the shock to see how the treasury reacts.</span>
+        </div>
+
+        <!-- Control Bar -->
+        <div class="control-bar-container">
+            <footer class="control-bar">
+                <div class="control-group">
+                    <button id="btn-play" class="btn btn-primary">
+                        <span class="icon">▶</span> Play Simulation
+                    </button>
+                    <button id="btn-pause" class="btn btn-secondary" disabled>
+                        <span class="icon">⏸</span> Pause
+                    </button>
+                    <button id="btn-reset" class="btn btn-secondary">
+                        <span class="icon">↺</span> Reset
+                    </button>
+                </div>
+                <div class="status-display">
+                    <span class="status-label">Current Step:</span>
+                    <span id="statusText" class="status-text">T+0 – Initial State</span>
+                </div>
+            </footer>
+
+            <!-- Micro Status Message -->
+            <div id="microStatus" class="micro-status">
+                Status: Ready. Hit Play to start the story.
+            </div>
+
+            <!-- Credits Footer -->
+            <div class="credits-footer">
+                <span class="credits-text">midas - build with love ❤️</span>
+                <span class="separator">|</span>
+                <a href="https://x.com/wjmdiary" target="_blank" class="social-link">
+                    reach me anytime
+                    <svg viewBox="0 0 24 24" class="x-logo" aria-hidden="true">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="simulation.js"></script>
+</body>
+
+</html>
